@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Tang</title>
+<meta name="description" content="Sam Tang — at the intersection of finance, technology, and strategy.">
+<meta property="og:title" content="Sam Tang">
+<meta property="og:description" content="At the intersection of finance, technology, and strategy.">
+<meta property="og:url" content="https://www.samtang.org/">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://www.samtang.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sam Tang — a green-and-white lighthouse casting its beam">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.samtang.org/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================
+     STYLE GUIDE — design tokens
+     Inspired by a warm "paper & highlighter" editorial look.
+     ========================================================== */
+  :root {
+    color-scheme: light dark;
+
+    /* Color — paper (backgrounds) */
+    --paper:   #fffcf0;   /* page */
+    --paper-2: #f2f0e5;   /* subtle fills, hover */
+    --paper-3: #e6e4d9;   /* deeper fill, shadow edge */
+    --card:    #fffef8;   /* raised surfaces */
+
+    /* Color — ink (text) */
+    --ink:   #100f0f;     /* headings, body */
+    --ink-2: #6f6e69;     /* secondary text, labels */
+    --ink-3: #b7b5ac;     /* decorative only (fails contrast for text) */
+    --rule:  #dad8ce;     /* hairlines, borders */
+
+    /* Color — highlighter accents */
+    --hl-yellow:  hsl(46 83% 80%);
+    --hl-orange:  hsl(27 98% 84%);
+    --hl-red:     hsl(6 82% 79%);
+    --hl-magenta: hsl(345 88% 90%);
+    --hl-purple:  hsl(274 27% 88%);
+    --hl-blue:    hsl(199 42% 84%);
+    --hl-green:   hsl(66 45% 79%);
+    --accent:     #c2410c; /* strong accent for small marks */
+    --linkedin:   #0a66c2; /* LinkedIn brand blue (CTA) */
+    --beam:       hsl(46 100% 70%); /* lighthouse light */
+    --lh-green:   #2f7a57;  /* lighthouse stripes */
+    --navy:       #1f2d4f;  /* lighthouse accents & outline */
+    --sea:        hsl(199 45% 88%);
+
+    /* Type — families */
+    --serif: "Source Serif 4", Georgia, serif;
+    --mono:  "JetBrains Mono", ui-monospace, monospace;
+
+    /* Type — fluid scale */
+    --step--1: clamp(0.83rem, 0.80rem + 0.16vw, 0.92rem);  /* labels, captions */
+    --step-0:  clamp(1rem,    0.96rem + 0.22vw, 1.13rem);  /* body */
+    --step-1:  clamp(1.2rem,  1.13rem + 0.35vw, 1.42rem);  /* lede, card titles */
+    --step-2:  clamp(1.44rem, 1.32rem + 0.58vw, 1.80rem);
+    --step-4:  clamp(2.07rem, 1.76rem + 1.55vw, 3.05rem);  /* section titles */
+    --step-6:  clamp(2.3rem,  1.9rem + 2.6vw,  4rem);      /* hero */
+    --lh-body: 1.6;
+    --lh-tight: 1.06;
+    --tracking-label: 0.14em;
+
+    /* Spacing */
+    --space-2xs: 0.35rem;
+    --space-xs:  0.5rem;
+    --space-s:   1rem;
+    --space-m:   1.5rem;
+    --space-l:   2.25rem;
+    --space-xl:  2.75rem;
+    --space-section: clamp(3.5rem, 7vw, 6rem);
+    --gutter: 1.5rem;
+    --measure: 74ch;         /* content width */
+
+    /* Shape & depth */
+    --radius-btn:  3px;
+    --radius-card: 8px;
+    --shadow-sheet: 0 1px 0 var(--paper-3), 0 18px 40px -28px rgb(16 15 15 / .45);
+    --ease: cubic-bezier(.55,.06,.3,1);
+
+    /* Texture */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #161512; --paper-2: #201e1a; --paper-3: #2b2925; --card: #1c1b18;
+      --ink: #f3f0e6; --ink-2: #a8a59b; --ink-3: #5c5a54; --rule: #34322d;
+      --hl-yellow: hsl(46 60% 34%); --hl-orange: hsl(27 60% 36%); --hl-red: hsl(6 50% 38%);
+      --hl-magenta: hsl(345 45% 38%); --hl-purple: hsl(274 22% 40%);
+      --accent: #fb923c; --linkedin: #70b5f9; --beam: hsl(46 100% 62%); --lh-green: #3f9a70; --navy: #9db0dc; --sea: hsl(205 35% 16%);
+      --shadow-sheet: 0 1px 0 #000, 0 18px 40px -28px rgb(0 0 0 / .8);
+    }
+  }
+
+  /* ==========================================================
+     BASE
+     ========================================================== */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:var(--serif); font-size:var(--step-0); line-height:var(--lh-body); color:var(--ink);
+         background:var(--paper) var(--grain); background-blend-mode:multiply; -webkit-font-smoothing:antialiased; overflow-x:clip; }
+  a { color:inherit; }
+  .wrap { width:min(var(--measure), 100% - 2*var(--gutter)); margin:0 auto; position:relative; }
+  .label { font-family:var(--mono); font-size:var(--step--1); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; color:var(--ink-2); }
+
+  /* Highlighter mark */
+  mark { --c:var(--hl-yellow); position:relative; background:none; color:inherit; isolation:isolate; white-space:nowrap; }
+  mark::before { content:""; position:absolute; z-index:-1; inset:8% -0.2ch 4% -0.25ch; background:var(--c);
+                 border-radius:2px 14px 4px 18px / 4px 20px 6px 14px; transform:skewX(-6deg) rotate(-.6deg); opacity:.85;
+                 transform-origin:left; animation:draw .7s var(--ease) both .25s; }
+  mark.orange { --c:var(--hl-orange); } mark.magenta { --c:var(--hl-magenta); } mark.blue { --c:var(--hl-blue); }
+  mark:nth-of-type(2)::before { animation-delay:.55s; } mark:nth-of-type(3)::before { animation-delay:.85s; }
+  @keyframes draw { from { clip-path:inset(0 100% 0 0); } to { clip-path:inset(0 0 0 0); } }
+
+  /* ==========================================================
+     HERO
+     ========================================================== */
+  .hero { padding:clamp(4rem, 10vw, 8rem) 0 var(--space-section); overflow-x:clip; }
+  .hero .btn { position:relative; z-index:1; }
+  h1 { font-size:var(--step-6); font-weight:600; line-height:var(--lh-tight); letter-spacing:-.025em; text-wrap:balance; margin:var(--space-m) 0 var(--space-l); max-width:20ch; }
+  .lede { font-size:var(--step-1); max-width:52ch; }
+
+  /* LinkedIn CTA: cream with brand-blue outline, fills blue on hover */
+  .btn { display:inline-flex; align-items:center; gap:var(--space-xs); margin-top:var(--space-l); font-family:var(--mono); font-size:var(--step--1); font-weight:500; letter-spacing:.06em;
+         padding:.75rem 1.2rem; border-radius:var(--radius-btn); border:1.5px solid var(--linkedin); background:var(--card); color:var(--linkedin); text-decoration:none; transition:background .18s, color .18s; }
+  .btn:hover { background:var(--linkedin); color:#fff; }
+  @media (prefers-color-scheme: dark) { .btn:hover { color:#0b1220; } }
+  .btn:focus-visible { outline:2px solid var(--linkedin); outline-offset:3px; }
+  .btn svg { width:16px; height:16px; fill:currentColor; }
+
+  /* ==========================================================
+     SECTIONS
+     ========================================================== */
+  .sec { padding:var(--space-section) 0; border-top:1px solid var(--rule); }
+  .sec-head { margin-bottom:var(--space-xl); }
+  .sec-head h2 { font-size:var(--step-4); font-weight:600; line-height:1.12; letter-spacing:-.02em; margin-top:var(--space-xs); }
+
+  /* Continuum */
+  .sheet { background:var(--card); border:1px solid var(--rule); border-radius:var(--radius-card); box-shadow:var(--shadow-sheet); padding:clamp(1.5rem, 3.5vw, 2.25rem); }
+  .track-wrap { position:relative; }
+  .track { list-style:none; position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-m); }
+  .track::before { content:""; position:absolute; top:8px; left:8px; right:8px; height:2px; background:repeating-linear-gradient(90deg,var(--ink-3) 0 4px,transparent 4px 10px); }
+  .run { position:absolute; top:3px; left:0; width:12px; height:12px; border-radius:50%; background:var(--beam);
+         box-shadow:0 0 0 4px color-mix(in srgb, var(--beam) 35%, transparent), 0 0 18px 6px color-mix(in srgb, var(--beam) 55%, transparent); animation:run 7s ease-in-out infinite; }
+  @keyframes run { 0% { left:2px; opacity:0 } 8%,85% { opacity:1 } 100% { left:calc(100% - 14px); opacity:0 } }
+  .stop { position:relative; padding-top:34px; }
+  .stop::before { content:""; position:absolute; top:0; left:0; width:18px; height:18px; border-radius:50%; background:var(--dot); border:1px solid color-mix(in srgb, var(--dot) 60%, var(--ink) 40%); }
+  .stop:nth-child(1) { --dot:var(--hl-yellow); } .stop:nth-child(2) { --dot:var(--hl-orange); }
+  .stop:nth-child(3) { --dot:var(--hl-red); } .stop:nth-child(4) { --dot:var(--hl-magenta); }
+  .stop b { display:block; font-weight:600; font-size:var(--step-1); line-height:1.2; }
+  .stop p { font-size:.95rem; color:var(--ink-2); line-height:1.5; margin-top:var(--space-xs); }
+
+  /* Credentials list */
+  .creds { list-style:none; border-top:1px solid var(--rule); }
+  .creds li { display:flex; flex-direction:column; gap:2px; padding:var(--space-s) 0; border-bottom:1px solid var(--rule); }
+  .creds li span:last-child { font-family:var(--mono); font-size:var(--step--1); color:var(--ink-2); }
+
+  /* ==========================================================
+     FOOTER + LIGHTHOUSE
+     ========================================================== */
+  footer { border-top:1px solid var(--rule); padding:var(--space-xl) 0 var(--space-l); }
+  footer .wrap { display:flex; flex-direction:column; gap:var(--space-xs); }
+  footer .wrap > span { font-family:var(--mono); font-size:.78rem; color:var(--ink-2); }
+
+  /* Lighthouse — grounds the hero, standing on the line above Career */
+  .hero { position:relative; isolation:isolate; background:linear-gradient(to bottom, transparent 55%, color-mix(in srgb, var(--sea) 60%, var(--paper)) 100%); }
+  .lh { position:absolute; z-index:-1; right:-9rem; bottom:calc(-1 * var(--space-section) + 1px); width:clamp(300px, 32vw, 420px); overflow:visible; pointer-events:none; }
+  .lh .beam { transform-origin:150px 132px; transform-box:view-box; animation:sweepAcross 10s ease-in-out infinite; }
+  .lh .beam path { fill:url(#lhBeam); }
+  .lh .halo { fill:var(--beam); transform-origin:150px 132px; transform-box:view-box; animation:halo 10s ease-in-out infinite; }
+  .lh .lamp { fill:var(--beam); }
+  .lh .stroke { stroke:var(--navy); stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .lh .white { fill:#fffef8; }
+  .lh .green { fill:var(--lh-green); }
+  .lh .navy  { fill:var(--navy); }
+  .lh .rock  { fill:var(--paper-3); }
+  .lh .wave  { fill:none; stroke:hsl(199 42% 62%); stroke-width:2.5; stroke-linecap:round; }
+  @keyframes sweepAcross { 0%,100% { transform:scaleX(1); } 50% { transform:scaleX(-1); } }
+  @keyframes halo { 0%,15%,35%,65%,85%,100% { opacity:.3; transform:scale(1); } 25%,75% { opacity:.9; transform:scale(1.6); } }
+  @media (prefers-color-scheme: dark) { .lh .white { fill:#e9e6dc; } .lh .rock { fill:#2b2925; } .lh .wave { stroke:hsl(199 30% 42%); } }
+
+  /* ==========================================================
+     RESPONSIVE & MOTION
+     ========================================================== */
+  @media (max-width:720px) {
+    .lh { width:210px; right:-3.5rem; }
+    .track { grid-template-columns:1fr; gap:var(--space-m); padding-left:34px; }
+    .track::before { top:8px; bottom:8px; left:8px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg,var(--ink-3) 0 4px,transparent 4px 10px); }
+    .run { left:3px; animation-name:runv; }
+    @keyframes runv { 0% { top:2px; opacity:0 } 8%,85% { opacity:1 } 100% { top:calc(100% - 14px); opacity:0 } }
+    .stop { padding-top:0; } .stop::before { left:-34px; top:2px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .run { display:none; } .lh .beam, .lh .lamp, .lh .halo { animation:none; }
+    mark::before { animation:none; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Hello, I’m Sam Tang. I’m happiest at the intersection of <mark>finance</mark>, <mark class="orange">technology</mark>, and <mark class="magenta">strategy</mark>, and I’m still learning there every day.</h1>
+    <p class="lede">I’m a global trade finance and working capital solutions leader who learned the craft by doing it. More than a decade in, I do my best work when I partner closely, go deep, and deliver.</p>
+    <a class="btn" href="https://www.linkedin.com/in/samstang/" rel="me">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      Connect on LinkedIn
+    </a>
+    <svg class="lh" viewBox="0 0 300 264" aria-hidden="true">
+      <defs>
+        <linearGradient id="lhBeam" x1="150" y1="0" x2="1150" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="var(--beam)" stop-opacity=".9"/>
+          <stop offset=".35" stop-color="var(--beam)" stop-opacity=".45"/>
+          <stop offset="1" stop-color="var(--beam)" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g class="beam"><path d="M150 127 L1150 50 L1150 214 L150 137 Z"/></g>
+      <circle class="halo" cx="150" cy="132" r="26"/>
+      <!-- rock & sea (rock base sits on the section line) -->
+      <path class="rock stroke" d="M104 262 Q112 244 132 242 L168 242 Q188 244 196 262 Z"/>
+      <path class="wave" d="M36 258 q10 -7 20 0 t20 0 t20 0"/>
+      <path class="wave" d="M204 254 q10 -7 20 0 t20 0 t20 0"/>
+      <!-- tower: tall & slim, green/white stripes -->
+      <path class="white stroke" d="M140 156 L160 156 L168 244 L132 244 Z"/>
+      <path class="green" d="M139.0 167 L161.0 167 L162.6 185 L137.4 185 Z"/>
+      <path class="green" d="M136.4 196 L163.6 196 L165.2 214 L134.8 214 Z"/>
+      <path class="green" d="M133.9 225 L166.1 225 L167.6 242 L132.4 242 Z"/>
+      <path class="white stroke" d="M140 156 L160 156 L168 244 L132 244 Z" style="fill:none"/>
+      <path class="navy" d="M146 244 v-11 a4 4 0 0 1 8 0 v11 Z"/>
+      <!-- gallery & lantern -->
+      <rect class="navy" x="134" y="150" width="32" height="6" rx="1.5"/>
+      <path class="stroke" d="M137 150 v-5 M163 150 v-5 M135 145 h30" fill="none"/>
+      <rect class="white stroke" x="141" y="123" width="18" height="22" rx="1.5"/>
+      <rect class="lamp" x="144" y="126" width="12" height="16" rx="1"/>
+      <!-- roof -->
+      <path class="navy stroke" d="M137 123 L163 123 L150 106 Z"/>
+      <path class="stroke" d="M150 106 v-7" fill="none"/>
+      <circle class="navy" cx="150" cy="97" r="2.5"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><p class="label">Career</p><h2>How I got here</h2></div>
+      <div class="sheet">
+        <div class="track-wrap">
+        <i class="run" aria-hidden="true"></i>
+        <ol class="track">
+          <li class="stop"><b>Practical foundations</b><p>Learning about trade and treasury solutions through an operator’s lens.</p></li>
+          <li class="stop"><b>The big picture</b><p>Leading strategy and business development initiatives — connecting the dots inside a global bank.</p></li>
+          <li class="stop"><b>Finding solutions</b><p>Structuring complex and cross-border transactions across sectors and geographies.</p></li>
+          <li class="stop"><b>Leading &amp; advising</b><p>Building teams and serving as a trusted advisor to Fortune 500 companies.</p></li>
+        </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><p class="label">Background</p><h2>Education &amp; credentials</h2></div>
+      <ul class="creds">
+        <li><span>The Wharton School, University of Pennsylvania</span><span>Finance and Operations, Information &amp; Decisions; minor in History</span></li>
+        <li><span>CFA Institute</span><span>CFA Charterholder</span></li>
+        <li><span>Cambridge Institute for Sustainability Leadership</span><span>Sustainability Essentials in Business</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Raised in Waukesha, Wisconsin. Packers fan, always.</span>
+    <span>© 2026 Sam Tang</span>
+  </div>
+</footer>
+</body>
+</html>
